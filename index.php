@@ -32,7 +32,7 @@ $host_name = $_SERVER['HTTP_HOST'].$localhost_suffix;
  */
 
 # Base constants
-define('ASSETS_LINK', $_SERVER['REQUEST_SCHEME'].'://'.$host_name.'/'.$assets_folder.'/');
+define('ASSETS_LINK', $_SERVER['REQUEST_SCHEME'].'://'.$host_name.$assets_folder.'/');
 define('ASSETS_PATH', dirname(__FILE__).DIRECTORY_SEPARATOR.$assets_folder.DIRECTORY_SEPARATOR);
 
 # Require of $load variables
