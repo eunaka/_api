@@ -59,7 +59,6 @@ abstract class Model
 		}
 		$sql = "SELECT $columns FROM $table WHERE $where";
 		$this->query($sql);
-		$this->
 	}
 
 	/*

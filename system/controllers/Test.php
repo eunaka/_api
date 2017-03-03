@@ -10,13 +10,8 @@ class Test extends Controller
 	}
 
 	public function home(){
-		$model = $this->model['test_model'];
 
-		$result = $model->conn->query('SELECT * FROM `test`');
-		var_dump($result);
-
-		echo '<br><br>';
-		var_dump(get_class_methods('mysqli_result'));
+		echo json_encode(dobro(2));
 	}
 }
 ?>
