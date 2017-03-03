@@ -24,7 +24,7 @@ $include_file = 'includes';
  */
 
 $localhost_suffix = '_api/';
-$host_name = $_SERVER['HTTP_HOST'].$localhost_suffix;
+$host_name = $_SERVER['HTTP_HOST'].'/'.$localhost_suffix;
 
 /* --------------------------------------------------
  * END OF CUSTOMIZATION
@@ -83,6 +83,6 @@ require_once ASSETS_PATH.$include_file.'.php';
 	}
 	?>
 	<!-- ANGULAR ROUTE BASE -->
-	<base href="/_api/">
+	<base href=<?php echo "/".$localhost_suffix; ?>>
 </head>
 <ng-view><ng-view>
