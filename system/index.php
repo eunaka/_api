@@ -7,6 +7,8 @@ $core_folder = 'core';
 
 $controllers_folder = 'controllers';
 
+$libraries_folder = 'libraries';
+
 $models_folder = 'models';
 
 /* --------------------------------------------------
@@ -24,6 +26,11 @@ if(is_dir($controllers_folder)){
 	define('CONTROLLERS_PATH', BASE_PATH.$controllers_folder.DIRECTORY_SEPARATOR);
 }
 else die('Controllers folder was not set correctly.');
+
+if(is_dir($libraries_folder)){
+	define('LIB_PATH', BASE_PATH.$libraries_folder.DIRECTORY_SEPARATOR);
+}
+else die('Libraries folder was not set correctly.');
 
 if(is_dir($models_folder)){
 	define('MODELS_PATH', BASE_PATH.$models_folder.DIRECTORY_SEPARATOR);

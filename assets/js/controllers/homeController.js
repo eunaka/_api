@@ -4,10 +4,10 @@ app.controller('HomeController', function($scope, $location, $routeParams, $http
 	$scope.return;
 
 	$scope.link = function(){
-		$location.path("/page/teste");
+		$location.path("/page/50");
 	}
 
-	$http.post('system/test/home', {teste: 'teste'})
+	$http.post('system/test/square', {num: 10})
 	.then(function(response){
 		$scope.return = response.data;
 	});

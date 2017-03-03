@@ -1,7 +1,7 @@
 <?php 
 defined('BASE_PATH') OR exit('No direct script access allowed');
 
-abstract class Model
+class Model
 {
 	/**
 	 * @var Object
@@ -30,7 +30,7 @@ abstract class Model
 	/*
 	 * Set all non numeric values to 'value'.
 	 */
-	public function parse_values($data){
+	protected function parse_values($data){
 		$return = array();
 		foreach ($data as $value) {
 			$return[] = (is_numeric($value))?$value:"'$value'";
@@ -41,7 +41,7 @@ abstract class Model
 	/*
 	 *
 	 */
-	public function query($sql){
+	protected function query($sql){
 		$return = $this->conn->query($sql);
 		if($this->conn->error){
 			echo "<h1>SQL ERROR #".$this->conn->errno."</h1>".$this->conn->error;
