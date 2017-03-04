@@ -9,10 +9,14 @@ class Test extends Controller
 		$this->load_lib('test_lib');
 	}
 
-	public function insert_in_test(){
-		$num = rand(1, 100);
-		$this->model['test_model']->insert('test', ['test_name' => $num]);
-		echo "num $num inserted";
+	public function test(){
+		$model = $this->model['test_model'];
+		$query = $model->query("INSERT INTO test (test_name) VALUES ('aloalo')");
+		var_dump($query);
+	}
+
+	public function model(){
+
 	}
 
 	public function square(){
