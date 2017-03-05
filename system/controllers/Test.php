@@ -16,7 +16,8 @@ class Test extends Controller
 	}
 
 	public function model(){
-
+		$this->model['test_model']->select('test', "WHERE test_name LIKE 'test%'");
+		var_dump($this->model['test_model']->get_result());
 	}
 
 	public function square(){

@@ -1,6 +1,12 @@
 <?php 
 defined('BASE_PATH') OR exit('No direct script access allowed');
 
+/**
+ * Establishes the inheritance basis for all controllers instantiated
+ * in the execution of the system.
+ *
+ * @author 	Poli Júnior Engenharia - eComp <http://www.polijuniorengenharia.com.br>
+ */
 class Model
 {
 	/**
@@ -11,7 +17,7 @@ class Model
 	public $conn;
 
 	/**
-	 * The result from the execution of a Model method.
+	 * The result of executing a query.
 	 *
 	 * @var int|array|null
 	 */
@@ -29,9 +35,10 @@ class Model
 	}
 
 	/**
-	 * Return the Model::result with the option to get only the specified id.
+	 * Return the Model::result. If an id was specified, return only the array with that id.
 	 *
-	 * @return int|array|null
+	 * @param 	int 	$id 	The id to filter the results in Model::result.
+	 * @return 	int|array|null
 	 */
 	public function get_result($id = NULL){
 		if(is_null($id)){
@@ -39,10 +46,10 @@ class Model
 		}
 		elseif(is_array($this->result)) {
 			foreach ($this->result as $value) {
-				#Index 0 of this array is suposed to be the id column.
-				$id_index = array_keys($value);
-				if($value[$id_index[0]] == $id){
-					return $value[$id_index[0]];
+				#Index 0 of $keys is suposed to be the column id.
+				$keys = array_keys($value);
+				if($value[$keys[0]] == $id){
+					return $value;
 				}
 			}
 			/* If the above return was not reached, the
@@ -53,9 +60,11 @@ class Model
 	}
 
 	/**
-	 * Set all non numeric values to 'value'.
+	 * Set all non numeric values of an array to 'value'.
 	 *
 	 * @param 	array 	$data 	Array that will have its values parsed.
+	 *
+	 * @return 	array 	Return all values in an indexed array.
 	 */
 	protected function parse_values($data){
 		$return = array();
@@ -71,6 +80,7 @@ class Model
 	 * 
 	 * @param	string 	$sql 	The query to be executed.
 	 * @param 	int 	$resultmode 	Default param of mysqli::query() method.
+	 *
 	 * @return 	object|null 	Returns the result of the last query.
 	 */
 	public function query($sql, $resultmode = MYSQLI_STORE_RESULT){
@@ -84,7 +94,15 @@ class Model
 	}
 
 	/**
+	 * Update the database using the keys of array parameter
+	 * as columns and the values as values.
 	 *
+	 * @param 	string 	$table 	Clause to select the target table.
+	 * @param 	string 	$where 	Clause to filter the query result.
+	 *
+	 * @param 	string|array 	$columns 	Set the columns that will be in the query.
+	 *
+	 * @return 	bool 	Return a boolean acording with the rolls affecteds by the query.
 	 */
 	public function select($table, $where='', $columns='*'){
 		if(is_array($columns)){
@@ -106,6 +124,12 @@ class Model
 	}
 
 	/**
+	 * Insert a new row in the table using the $data array keys
+	 * as columns and values as values. Also sets the Model::result
+	 * to the id of the new row. 
+	 *
+	 * @param 	string 	$table 	Clause to select the target table.
+	 * @param 	array 	$data 	Data to be inserted in the table columns.
 	 *
 	 * @return 	bool 	Return a boolean acording to the success of the query.
 	 */
@@ -128,6 +152,12 @@ class Model
 	}
 
 	/**
+	 * Update the database using the keys of array parameter
+	 * as columns and the values as values.
+	 *
+	 * @param 	string 	$table 	Clause to select the target table.
+	 * @param 	array 	$data 	Data to be changed in the table columns.
+	 * @param 	string 	$where 	Clause to limit the query action range.
 	 *
 	 * @return 	bool 	Return a boolean acording with the rolls affecteds by the query.
 	 */
@@ -148,8 +178,11 @@ class Model
 	}
 
 	/**
-	 * @param 	string 	$table 	The name of the table to use.
-	 * @param 	string $where 
+	 * Delete the rows of the specified table that fit the WHERE clause.
+	 *
+	 * @param 	string 	$table 	Clause to select the target table.
+	 * @param 	string 	$where 	Clause to limit the query action range.
+	 *
 	 * @return 	bool 	Return a boolean acording with the rolls affecteds by the query.
 	 */
 	public function delete($table, $where){
