@@ -1,6 +1,13 @@
 <?php
 defined('BASE_PATH') OR exit('No direct script access allowed');
 
+/**
+ * 
+ * 
+ * @package		<PJ_API_NAME>
+ * @subpackage	Core
+ * @author 		Poli Júnior Engenharia - eComp
+ */
 class Test extends Controller
 {
 	function __construct()
@@ -10,13 +17,11 @@ class Test extends Controller
 	}
 
 	public function test(){
-		$model = $this->model['test_model'];
-		$query = $model->query("INSERT INTO test (test_name) VALUES ('aloalo')");
-		var_dump($query);
+
 	}
 
 	public function model(){
-		$this->model['test_model']->select('test', "WHERE test_name LIKE 'test%'");
+		$this->model['test_model']->delete('test', "WHERE test_name = 'alo'");
 		var_dump($this->model['test_model']->get_result());
 	}
 

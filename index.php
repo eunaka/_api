@@ -1,10 +1,43 @@
 <?php
+/**
+ * <PJ_API_NAME>
+ *
+ * This content is released under the MIT License (MIT)
+ *
+ * Copyright 2017, Poli Júnior Engenharia
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * @package	<PJ_API_NAME>
+ * @author Poli Júnior Engenharia - eComp Team
+ * @copyright 2017, Poli Júnior Engenharia (http://polijuniorengenharia.com.br/)
+ * @license	http://opensource.org/licenses/MIT	MIT License
+ * @link <REPOSITORY_LINK>
+ */
 
 /* --------------------------------------------------
  * FOLDERS AND FILE NAMES
  * --------------------------------------------------
- * Defines the name of the assets folder and the PHP
- * witch helds the the $load variable.
+ * Folder names used to define constant links in
+ * index imports. If any folder or file used here
+ * had its name changed and not changed here, the
+ * imports and links will not work.
  */
 
 $assets_folder = 'assets';
@@ -17,14 +50,18 @@ $include_file = 'includes';
  * or leave to system do it.
  *
  * If you are in localhost and uses a suffix in host
- * name, then define it here.
+ * name, then define it here. If theres no suffix, 
+ * set an empty string.
  * Ex.:
  *		For http://localhost/folder/
  *		Use $localhost_suffix = 'folder/';
+ *
+ *		For http://domain.com/
+ *		Use $localhost_suffix = '';
  */
 
-$localhost_suffix = '_api/';
-$host_name = $_SERVER['HTTP_HOST'].'/'.$localhost_suffix;
+$localhost_suffix = '_api';
+$host_name = $_SERVER['HTTP_HOST'];
 
 /* --------------------------------------------------
  * END OF CUSTOMIZATION
@@ -32,7 +69,10 @@ $host_name = $_SERVER['HTTP_HOST'].'/'.$localhost_suffix;
  */
 
 # Base constants
-define('ASSETS_LINK', $_SERVER['REQUEST_SCHEME'].'://'.$host_name.$assets_folder.'/');
+if(!empty($localhost_suffix)){
+	$host_name .= '/'.$localhost_suffix;
+}
+define('ASSETS_LINK', $_SERVER['REQUEST_SCHEME'].'://'.$host_name.'/'.$assets_folder.'/');
 define('ASSETS_PATH', dirname(__FILE__).DIRECTORY_SEPARATOR.$assets_folder.DIRECTORY_SEPARATOR);
 
 # Require of $load variables
@@ -83,6 +123,6 @@ require_once ASSETS_PATH.$include_file.'.php';
 	}
 	?>
 	<!-- ANGULAR ROUTE BASE -->
-	<base href=<?php echo "/".$localhost_suffix; ?>>
+	<base href=<?= "/".$localhost_suffix."/" ?>>
 </head>
 <ng-view><ng-view>

@@ -1,11 +1,57 @@
 <?php 
+/**
+ * <PJ_API_NAME>
+ *
+ * This content is released under the MIT License (MIT)
+ *
+ * Copyright 2017, Poli Júnior Engenharia
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * @package	<PJ_API_NAME>
+ * @author Poli Júnior Engenharia - eComp Team
+ * @copyright 2017, Poli Júnior Engenharia (http://polijuniorengenharia.com.br/)
+ * @license	http://opensource.org/licenses/MIT	MIT License
+ * @link <REPOSITORY_LINK>
+ */
+
 defined('BASE_PATH') OR exit('No direct script access allowed');
 
 /**
- * Establishes the inheritance basis for all controllers instantiated
- * in the execution of the system.
+ * Establishes the inheritance basis for all models instantiated
+ * in the execution of controllers.
  *
- * @author 	Poli Júnior Engenharia - eComp <http://www.polijuniorengenharia.com.br>
+ * Models are objects that defines the communication with the
+ * database. Selections, insertions, updates and deletes basic
+ * functions are defined in Model class and all other variants and
+ * specifics database interactions are made by Model childs in
+ * models folder.
+ *
+ * All models must be instantiated as properties of a controller
+ * and will be used by them to transmit the product of the logic
+ * of the methods to the database.
+ *
+ * 
+ * @package		<PJ_API_NAME>
+ * @subpackage	Core
+ * @author 		Poli Júnior Engenharia - eComp
+ * @link		<insert link to doc>
  */
 class Model
 {
