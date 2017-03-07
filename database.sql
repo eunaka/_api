@@ -44,7 +44,8 @@ CREATE TABLE IF NOT EXISTS `store`(
  * --------------------------------------------------
  */
 CREATE TABLE IF NOT EXISTS `product`(
-	`id` INT(11) PRIMARY KEY AUTO_INCREMENT
+	`id` INT(11) PRIMARY KEY AUTO_INCREMENT,
+	`name` VARCHAR(50) NOT NULL UNIQUE
 )ENGINE INNODB DEFAULT CHAR SET 'utf8' AUTO_INCREMENT=10;
 
 /* --------------------------------------------------
@@ -56,9 +57,9 @@ CREATE TABLE IF NOT EXISTS `user_store`(
 	`user_id` INT(11) NOT NULL,
 	`store_id` INT(11) NOT NULL,
 	CONSTRAINT `fk_user_id`
-		FOREIGN KEY `user_id`
+		FOREIGN KEY (`user_id`)
 		REFERENCES `user`(`id`),
 	CONSTRAINT `fk_store_id`
-		FOREIGN KEY `store_id`
+		FOREIGN KEY (`store_id`)
 		REFERENCES `store`(`id`)
 )ENGINE INNODB DEFAULT CHAR SET 'utf8' AUTO_INCREMENT=10;
