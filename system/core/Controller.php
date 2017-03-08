@@ -1,6 +1,6 @@
 <?php
 /**
- * <PJ_API_NAME>
+ * <PROJECT_NAME>
  *
  * This content is released under the MIT License (MIT)
  *
@@ -24,9 +24,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * @package	<PJ_API_NAME>
- * @author Poli Júnior Engenharia - eComp Team
- * @copyright 2017, Poli Júnior Engenharia (http://polijuniorengenharia.com.br/)
+ * @package	<PROJECT_NAME>
+ * @author <AUTHOR>
+ * @copyright 2017, <COPYRIGHT>
  * @license	http://opensource.org/licenses/MIT	MIT License
  * @link <REPOSITORY_LINK>
  */
@@ -47,10 +47,10 @@ require_once CORE_PATH.'Lib.php';
  * database communication, validation and confirmation of infos, are
  * hadled in a controller.
  * 
- * @package		<PJ_API_NAME>
+ * @package		<PROJECT_NAME>
  * @subpackage	Core
- * @author 		Poli Júnior Engenharia - eComp
- * @link		<insert link to doc>
+ * @author 		<AUTHOR>
+ * @link		<DOC_LINK>
  */
 class Controller
 {

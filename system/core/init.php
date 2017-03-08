@@ -1,6 +1,6 @@
 <?php 
 /**
- * <PJ_API_NAME>
+ * <PROJECT_NAME>
  *
  * This content is released under the MIT License (MIT)
  *
@@ -24,9 +24,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * @package	<PJ_API_NAME>
- * @author Poli Júnior Engenharia - eComp Team
- * @copyright 2017, Poli Júnior Engenharia (http://polijuniorengenharia.com.br/)
+ * @package	<PROJECT_NAME>
+ * @author <AUTHOR>
+ * @copyright 2017, <COPYRIGHT>
  * @license	http://opensource.org/licenses/MIT	MIT License
  * @link <REPOSITORY_LINK>
  */

@@ -1,6 +1,6 @@
 <?php
 /**
- * <PJ_API_NAME>
+ * <PROJECT_NAME>
  *
  * This content is released under the MIT License (MIT)
  *
@@ -24,9 +24,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * @package	<PJ_API_NAME>
- * @author Poli Júnior Engenharia - eComp Team
- * @copyright 2017, Poli Júnior Engenharia (http://polijuniorengenharia.com.br/)
+ * @package	<PROJECT_NAME>
+ * @author <AUTHOR>
+ * @copyright 2017, <COPYRIGHT>
  * @license	http://opensource.org/licenses/MIT	MIT License
  * @link <REPOSITORY_LINK>
  */
@@ -46,10 +46,10 @@ defined('BASE_PATH') OR exit('No direct script access allowed');
  * and will be used by them to shortcut codes by the use of their
  * methods.
  * 
- * @package		<PJ_API_NAME>
+ * @package		<PROJECT_NAME>
  * @subpackage	Core
- * @author 		Poli Júnior Engenharia - eComp
- * @link		<insert link to doc>
+ * @author 		<AUTHOR>
+ * @link		<DOC_LINK>
  */
 
 class Lib
