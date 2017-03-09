@@ -80,22 +80,59 @@ class Controller
 	 */
 	private $post;
 
-	function __construct()
-	{
+	/**
+	 * Variable to be returned to frontend.
+	 *
+	 * @var array
+	 */
+	protected $return;
+
+	function __construct(){
 		$this->post = json_decode(file_get_contents("php://input"));
 	}
 
 	/**
-	 * Chech if the post received from the front
-	 * end has the property and then return it.
+	 * On the end of script execution, echo the encode
+	 * of whatever is set to Controller::return.
+	 */
+	function __destruct(){
+		if(isset($this->return)){
+			echo json_encode($this->return);
+		}
+	}
+
+	/**
+	 * If there's no $index, return an array with
+	 * the post received.
+	 * If is defined $index, check if the post
+	 * received from the front end has the property
+	 * and then return it.
 	 *
 	 * @param 	string 	$index The property name to be searched in Model::post.
 	 *
 	 * @return 	mixed 	Property received by JSON from the frontend.
 	 */
-	public function get_post($index){
-		if(property_exists($this->post, $index)){
-			return $this->post->$index;
+	public function get_post($index = NULL){
+		if(isset($this->post)){
+			if(is_null($index)){
+				$properties = get_object_vars($this->post);
+				$post = array();
+				foreach ($properties as $name => $value) {
+					$post[$name] = $this->post->$name;
+				}
+				return $post;
+			}
+			else if(property_exists($this->post, $index)){
+				return $this->post->$index;
+			}
+			else {
+				echo "<strong>WARNING:</strong> $index was not found in JSON post.".PHP_EOL;
+				return NULL;
+			}
+		}
+		else {
+			echo "<strong>WARNING:</strong> JSON post is not set.".PHP_EOL;
+			return NULL;
 		}
 	}
 

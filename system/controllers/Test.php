@@ -5,12 +5,14 @@ class Test extends Controller
 {
 	function __construct()
 	{
+		parent::__construct();
 		$this->load_model('test_model');
 		$this->load_lib('test_lib');
 	}
 
 	public function test(){
-		
+		$data = $this->get_post();
+		$this->return = $data;
 	}
 
 	public function model(){
