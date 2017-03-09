@@ -11,8 +11,7 @@ class Test extends Controller
 	}
 
 	public function test(){
-		$data = $this->get_post();
-		$this->return = $data;
+		
 	}
 
 	public function model(){
