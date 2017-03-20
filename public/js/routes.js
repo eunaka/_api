@@ -2,7 +2,7 @@
  * 
  * ------------------------------
  */
-var viewsPath = 'assets/views/';
+var viewsPath = 'public/views/';
 
 app
 .config(function($routeProvider, $locationProvider){
