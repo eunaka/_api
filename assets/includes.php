@@ -15,6 +15,7 @@
  */
 $load['css']['core'][] = 'bootstrap.min';
 $load['css']['core'][] = 'bootstrap-theme.min';
+$load['css']['core'][] = 'font-awesome.min';
 
 /* --------------------------------------------------
  * assets/css/
