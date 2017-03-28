@@ -78,6 +78,11 @@ class Model
 		if($this->conn->connect_error){
 			die("<h1>CONNECTION ERROR #".$this->conn->connect_errno."</h1>".$this->conn->connect_error);
 		}
+		/*UTF-8 Configs*/
+		$this->conn->query("SET NAMES 'utf8'");
+		$this->conn->query('SET character_set_connection=utf8');
+		$this->conn->query('SET character_set_client=utf8');
+		$this->conn->query('SET character_set_results=utf8');
 	}
 
 	/**
