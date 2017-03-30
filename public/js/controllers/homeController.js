@@ -1,12 +1,8 @@
-app.controller('HomeController', function($scope, $location, $routeParams, $http){
+app.controller('HomeController', function($scope, $state, $http){
 	$scope.home = "HOME";
 
 	$scope.return;
 	$scope.return2;
-
-	$scope.link = function(){
-		$location.path("/page/50");
-	}
 
 	$http.post('system/test/square', {num: 10})
 	.then(function(response){

@@ -1,22 +1,17 @@
 /* ------------------------------
- * 
+ * Angular UI-Router config
  * ------------------------------
  */
-var viewsPath = 'public/views/';
+app.config(function($stateProvider, $locationProvider, $urlRouterProvider){
+ 	$locationProvider.html5Mode(true);
 
-app
-.config(function($routeProvider, $locationProvider){
-	$locationProvider.html5Mode(true);
-	
-	//Define the custom routes
-	$routeProvider
-	.when('/', {
+	$stateProvider
+	.state({
+		name: 'home',
+		url:'/',
 		templateUrl: viewsPath+'home.php',
 		controller: 'HomeController'
-	})
-	.when('/page/:var', {
-		templateUrl: viewsPath+'page.php',
-		controller: 'PageController'
-	})
-	.otherwise({redirectTo: '/'});
+	});
+
+ 	$urlRouterProvider.otherwise('/');
 });

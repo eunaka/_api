@@ -1,0 +1,40 @@
+<style type="text/css">
+	/* MODAL CHANGES */
+	.modal-footer-custom{
+		padding: 10px 20px;
+		border:none;
+	}
+	.modal-content-custom{
+		color: black;
+	}
+	/* Important part */
+	.modal-dialog{
+		overflow-y: initial !important
+	}
+	.modal-body{
+		padding: 20px 20px 0px;
+		height: auto;
+		max-height: 30em;
+		overflow-y: auto;
+	}
+	.modal p{
+		text-align: justify;
+	}
+</style>
+<div id="{{id}}" class="modal fade" role="dialog">
+	<div class="modal-dialog modal-{{type}}">
+		<!-- Modal content-->
+		<div class="modal-content modal-content-custom">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title font-kom font-kom-red">{{title}}</h4>
+			</div>
+			<div class="modal-body" ng-transclude>
+				<!-- Modal Content -->
+			</div>
+			<div class="modal-footer modal-footer-custom text-right">
+				<button type="button" class="btn btn-danger" data-dismiss="modal"><strong>Fechar</strong></button>
+			</div>
+		</div> <!-- .modal-content -->
+	</div> <!-- .modal-dialog -->
+</div> <!-- .modal -->

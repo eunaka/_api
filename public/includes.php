@@ -28,7 +28,7 @@ $load['css'][] = 'style';
  * --------------------------------------------------
  */
 $load['js']['core'][] = 'angular.min';
-$load['js']['core'][] = 'angular-route.min';
+$load['js']['core'][] = 'angular-ui-router.min';
 $load['js']['core'][] = 'jquery.min';
 $load['js']['core'][] = 'bootstrap.min';
 
@@ -38,11 +38,11 @@ $load['js']['core'][] = 'bootstrap.min';
  */
 $load['js'][] = 'app';
 $load['js'][] = 'routes';
+$load['js'][] = 'directives';
 
 /* --------------------------------------------------
  * public/js/controllers/
  * --------------------------------------------------
  */
 $load['js']['controllers'][] = 'homeController';
-$load['js']['controllers'][] = 'pageController';
 

@@ -126,6 +126,6 @@ require_once PUBLIC_PATH.$include_file.'.php';
 	}
 	?>
 	<!-- ANGULAR ROUTE BASE -->
-	<base href=<?= "/".$localhost_suffix."/" ?>>
+	<base href="<?= "/".$localhost_suffix."/" ?>">
 </head>
-<ng-view><ng-view>
+<ui-view><ui-view>
