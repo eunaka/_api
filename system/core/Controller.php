@@ -46,7 +46,7 @@ require_once CORE_PATH.'Lib.php';
  * to make the hard logic that frontend javascript can't, sensive data,
  * database communication, validation and confirmation of infos, are
  * hadled in a controller.
- * 
+ *
  * @package		<PROJECT_NAME>
  * @subpackage	Core
  * @author 		<AUTHOR>
@@ -58,7 +58,7 @@ class Controller
 	 * Each key is the name of an Model object,
 	 * each value is an instance of it.
 	 * Ex.: $this->model['myModel'] = new myModel();
-	 * 
+	 *
 	 * @var array
 	 */
 	protected $model = array();
@@ -87,9 +87,13 @@ class Controller
 	 */
 	protected $return;
 
+
+	protected $modelname;
+
 	function __construct(){
 		session_start();
 		$this->post = json_decode(file_get_contents("php://input"));
+		$this->return = array('success' => TRUE, 'error' => "");
 	}
 
 	/**
@@ -98,7 +102,7 @@ class Controller
 	 */
 	function __destruct(){
 		if(isset($this->return)){
-			echo json_encode($this->return);
+			 echo json_encode($this->return);
 		}
 	}
 
@@ -170,4 +174,77 @@ class Controller
 		}
 		return $this->lib[$file];
 	}
+
+	public function add($table, $where, $field){
+		$data = $this->get_post();
+
+		//Non valid content on data array
+		if(is_null($data)){
+			$this->return['success'] = FALSE;
+			$this->return['error'] .= "Data array not match.";
+			return;
+		}
+
+		$status = $this->model[$this->modelname]->select($table, $where . $data[$field] . "'");
+
+		//Already exists
+		if($status){
+			$this->return['success'] = FALSE;
+			$this->return['error'] .= "Already exists";
+			return;
+		}
+
+		//Adding a new object
+		$status = $this->model[$this->modelname]->insert($table, $data);
+
+		if(!$status){
+			$this->return['success'] = FALSE;
+			$this->return['error'] .= "Erro ao inserir.";
+			return;
+		}
+
+	}
+	public function remove($data, $table){
+
+		if(is_null($data)){
+			$this->return['success'] = FALSE;
+			$this->return['error'] .= 'Data not match.';
+			return;
+		}
+
+		$status = $this->model[$this->modelname]->delete($table, "WHERE id = '" . $data . "'");
+
+		if(!$status){
+			$this->return['success'] = FALSE;
+			$this->return['error'] .= "Erro ao deletar, nao existe!";
+			return;
+		}
+
+	}
+	public function update($table){
+		$data = $this->get_post();
+
+		if(is_null($data)){
+			$this->return['success'] = FALSE;
+			$this->return['error'] .= 'Data not match.';
+			return;
+		}
+
+		$status = $this->model[$this->modelname]->select($table, "WHERE id = '" . $data[id] . "'");
+
+		if(!$status){
+			$this->return['success'] = FALSE;
+			$this->return['error'] .= 'Nao existe.';
+			return;
+		}
+
+		$status = $this->model[$this->modelname]->update($table, $data, "WHERE id = '" . $data['id'] . "'");
+
+		if(!$status){
+			$this->return['success'] = FALSE;
+			$this->return['error'] .= 'Erro no update.';
+			return;
+		}
+	}
+
 }
