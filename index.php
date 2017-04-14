@@ -84,6 +84,9 @@ require_once PUBLIC_PATH.$include_file.'.php';
 ?>
 <html ng-app="app">
 <head>
+	<script type="text/javascript">
+		Window.PUBLIC_FOLDER_BASE_LINK = "<?=PUBLIC_LINK?>";
+	</script>
 	<?php
 	# Function to simplificate the include of a file.
 	function include_file($type, $link){
@@ -126,6 +129,6 @@ require_once PUBLIC_PATH.$include_file.'.php';
 	}
 	?>
 	<!-- ANGULAR ROUTE BASE -->
-	<base href="<?= "/".$localhost_suffix."/" ?>">
+	<base href="<?= "/".((empty($localhost_suffix))?null:$localhost_suffix."/") ?>">
 </head>
 <ui-view><ui-view>

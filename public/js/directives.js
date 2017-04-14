@@ -1,5 +1,5 @@
 app
-.directive('modal', function() {
+.directive('modal', function($pathTo) {
 	return {
 		restrict: 'AE',
 		scope: {
@@ -8,7 +8,7 @@ app
 			title: '@modalTitle',
 		},
 		transclude: true,
-		templateUrl: directivesPath+'modal.html'
+		templateUrl: $pathTo.directivesFolder+'modal.html'
 	};
 })
 ;
