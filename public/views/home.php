@@ -1,4 +1,6 @@
 {{home}}<br>
 {{return}}<br>
 {{return2}}<br>
-<span class="glyphicon glyphicon-plus"></span><span class="fa fa-bars"></span>
+<h3>pathTo returns</h3>
+<strong>pathTo.jsFolder:</strong> {{jsFolder}}<br>
+<strong>pathTo.directivesFolder:</strong> {{directivesFolder}}<br>
