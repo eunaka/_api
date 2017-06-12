@@ -1,5 +1,16 @@
 app.controller('HomeController', function($scope, $state, $http, $pathTo){
 	$scope.home = "HOME";
+	$scope.testes = [
+		{
+			'id': 0,
+			'name': 'teste1'
+		},
+		{
+			'id': 1,
+			'name': 'teste2'
+		}
+	]
+	$scope.selecionados = {};
 
 	/*pathTo Test*/
 	$scope.jsFolder = $pathTo.jsFolder;

@@ -16,6 +16,8 @@
 $load['css']['core'][] = 'bootstrap.min';
 $load['css']['core'][] = 'bootstrap-theme.min';
 $load['css']['core'][] = 'font-awesome.min';
+$load['css']['core'][] = 'w3';
+$load['css']['core'][] = 'sidebar';
 
 /* --------------------------------------------------
  * public/css/
@@ -31,6 +33,9 @@ $load['js']['core'][] = 'angular.min';
 $load['js']['core'][] = 'angular-ui-router.min';
 $load['js']['core'][] = 'jquery.min';
 $load['js']['core'][] = 'bootstrap.min';
+$load['js']['core'][] = 'ngMask.min';
+$load['js']['core'][] = 'pjsidebar';
+$load['js']['core'][] = 'w3';
 
 /* --------------------------------------------------
  * public/js/
@@ -45,4 +50,3 @@ $load['js'][] = 'directives';
  * --------------------------------------------------
  */
 $load['js']['controllers'][] = 'homeController';
-
