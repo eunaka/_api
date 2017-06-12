@@ -35,6 +35,7 @@ $load['js']['core'][] = 'jquery.min';
 $load['js']['core'][] = 'bootstrap.min';
 $load['js']['core'][] = 'ngMask.min';
 $load['js']['core'][] = 'pjsidebar';
+$load['js']['core'][] = 'angular-file-upload.min';
 $load['js']['core'][] = 'w3';
 
 /* --------------------------------------------------
@@ -49,4 +50,4 @@ $load['js'][] = 'directives';
  * public/js/controllers/
  * --------------------------------------------------
  */
-$load['js']['controllers'][] = 'homeController';
+$load['js']['controllers'][] = 'HomeController';
